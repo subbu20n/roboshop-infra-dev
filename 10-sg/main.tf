@@ -29,14 +29,16 @@ module "backend_alb" {
 }
 
 module "vpn" {
-  #source = "../terraform-aws-securitygroup" 
+  #source =  "../terraform-aws-securitygroup" 
   source = "git::https://github.com/subbu20n/terraform-aws-securitygroup.git?ref=main" 
   project  = var.project 
-  environment = var.environment 
+  environment = var.environment  
   sg_name = "vpn" 
   sg_description = "for vpn" 
-  vpc_id = local.vpc_id  
+  vpc_id = local.vpc_id 
 }
+
+
  
 #bastion accepting all ports from my laptop 
 resource "aws_security_group_rule" "bastion_laptop" {
