@@ -27,4 +27,4 @@ variable "sg_tags" {
         Name = "frontend"
     }
 }
-  
+   
