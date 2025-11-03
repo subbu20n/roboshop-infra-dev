@@ -18,7 +18,7 @@ module "bastion" {
   vpc_id  = local.vpc_id  
 } 
 
-module "backend_alb" {
+/* module "backend_alb" {
   #source =  "../terraform-aws-securitygroup" 
   source = "git::https://github.com/subbu20n/terraform-aws-securitygroup.git?ref=main" 
   project  = var.project 
@@ -26,7 +26,7 @@ module "backend_alb" {
   sg_name = "backend-alb" 
   sg_description = "for backend description" 
   vpc_id = local.vpc_id 
-}
+} */
 
 module "vpn" {
   #source =  "../terraform-aws-securitygroup" 
