@@ -13,7 +13,7 @@
     - payment
   - BACKEND_ALB:
   - FRONTEND:
-  - FRONTEND_ALB:
+  - FRONTEND_ALB: 
   - VPN:
   - BASTION:
   mongodb:
