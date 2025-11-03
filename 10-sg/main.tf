@@ -35,7 +35,7 @@ module "vpn" {
   environment = var.environment 
   sg_name = "vpn" 
   sg_description = "for vpn" 
-  vpc_id = local.vpc_id 
+  vpc_id = local.vpc_id  
 }
  
 #bastion accepting all ports from my laptop 
