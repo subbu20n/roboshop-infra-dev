@@ -6,14 +6,15 @@ terraform {
         }
     }
     backend "s3" {
-        bucket   = "90-remote-state-dev"
-        key      = "roboshop-dev-vpn"
-        region   = "us-east-1"
+        bucket = "90-remote-state-dev" 
+        key    = "roboshop-dev-vpn" 
+        region = "us-east-1" 
         encrypt  = true 
-        use_lockfile   = true 
+        use_lockfile = true  
     }
 }
+
 provider "aws" {
-    # configuration optinons 
-    region = "us-east-1"
-}
+    #configuration options  
+    region = "us-east-1" 
+}  

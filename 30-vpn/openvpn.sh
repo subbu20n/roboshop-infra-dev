@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-SCRIPTS="/usr/local/openvpn_as/scripts"
+SCRIPTS="/usr/local/openvpn_as/scripts" 
 USERNAME="openvpn"
 PASSWORD='Openvpn@123'   # Use SSM or Secrets Manager in production
 
