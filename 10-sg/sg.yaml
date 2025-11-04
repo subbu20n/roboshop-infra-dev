@@ -14,7 +14,7 @@
   - BACKEND_ALB:
   - FRONTEND:
   - FRONTEND_ALB: 
-  - VPN:
+  - VPN: 
   - BASTION:
   mongodb:
   - name: mongodb_vpn
@@ -23,7 +23,7 @@
     purpose: mongodb should accept traffic on 27017 from catalogue
   - name: mongodb_user
     purpose: mongodb should accept traffic on 27017 from user
-
+ 
   redis:
   - name: redis_vpn
     purpose: redis should accept traffic on 22,5679 from vpn
@@ -48,4 +48,4 @@
   - name: catalogue_vpn
     purpose: catalogue should accept traffic on 22 from vpn
   - name: catalogue_backend_alb
-    purpose: catalogue should accept traffic on 8080 from backend_alb
+    purpose: catalogue should accept traffic on 8080 from backend_alb  

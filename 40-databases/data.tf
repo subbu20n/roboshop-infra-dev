@@ -15,7 +15,7 @@ data "aws_ami" "joindevops" {
     filter {
         name = "virtualization-type"
         values = ["hvm"]
-    }
+    } 
 }
 
 data "aws_ssm_parameter" "mongodb_sg_id" {
