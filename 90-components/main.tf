@@ -1,6 +1,6 @@
 module "component" {
     for_each = var.components 
-    source   = "git::https://github.com/subbu20n/terraform-aws-roboshop.git?ref=main"
+    source = "../../terraform-aws-roboshop" 
     component = each.key 
-    rule_priority = each.value.rule_priority
+    rule_priority = each.value.rule_priority 
 }

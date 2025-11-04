@@ -14,3 +14,4 @@ variable "zone_name" {
     default = "subbuaws.site"
 }
 
+ 

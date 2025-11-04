@@ -19,7 +19,7 @@ resource  "aws_instance" "catalogue" {
   ami = local.ami_id 
   instance_type = "t3.micro" 
   vpc_security_group_ids = [local.catalogue_sg_id] 
-  subnet_id = local.private_subnet_ids 
+  subnet_id = local.private_subnet_id
 
   tags = merge(
     local.common_tags,
@@ -161,16 +161,16 @@ resource "aws_autoscaling_group" "catalogue" {
   } 
 
    instance_refresh {
-     strategy = "rolling" 
+     strategy = "Rolling" 
      preferences {
        min_healthy_percentage = "50" 
      }
-      triggers = [launch_template] 
+      triggers = ["launch_template"] 
    }     
    timeouts {
        delete = "15m"
    }
-}
+} 
   
 resource "aws_autoscaling_policy" "catalogue" {
   name = "${var.project}-${var.environment}-catalogue" 
@@ -178,8 +178,24 @@ resource "aws_autoscaling_policy" "catalogue" {
   policy_type = "TargetTrackingScaling" 
   target_tracking_configuration {
      predefined_metric_specification {
-      predefined_metric_type = "ASGAverageCPUtilization" 
+      predefined_metric_type = "ASGAverageCPUUtilization" 
      }
      target_value = "75.0" 
+  }
+} 
+
+resource "aws_lb_listener_rule" "catalogue" {
+  listener_arn = local.backend_alb_listener_arn 
+  priority = 10 
+
+  action {
+    type = "forward" 
+    target_group_arn = aws_lb_target_group.catalogue.arn  
+  } 
+
+  condition { 
+    host_header {
+      values = ["catalogue.backend-${var.environment}.${var.zone_name}"]
+    }
   }
 }

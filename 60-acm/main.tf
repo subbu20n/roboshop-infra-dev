@@ -24,7 +24,7 @@ resource "aws_route53_record" "subbuaws" {
     }
     allow_overwrite = true 
     name  = each.value.name 
-    type  = each.value.type 
+    type  = each.value.type  #certificate create chesetappudu lopale chestam  record ni 
     ttl  = 60 
     records = [each.value.record]
     zone_id = var.zone_id 
