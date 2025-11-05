@@ -21,14 +21,14 @@ resource "aws_lb_listener" "frontend_alb" {
     load_balancer_arn = module.frontend_alb.arn 
     port = "443" 
     protocol = "HTTPS" 
-    ssl_policy = "EC2SecurityPolicy-2016-08" 
+    ssl_policy = "ELBSecurityPolicy-2016-08" 
     certificate_arn = local.acm_certificate_arn 
 
     default_action {
         type = "fixed-response" 
 
         fixed_response {
-               content_type = "html/text" 
+               content_type = "text/html" 
                message_body = "<h1>Hello i am from FRONTEND ALB</h1>" 
                status_code = 200 
         }
