@@ -7,7 +7,7 @@ terraform {
     }
     backend "s3" {
         bucket = "90-remote-state-dev" 
-        key   = "robooshop-dev-cdn" 
+        key   = "roboshop-dev-cdn" 
         region = "us-east-1" 
         encrypt = true 
         use_lockfile = true 
@@ -17,4 +17,4 @@ terraform {
 provider "aws" {
     #configuration options 
     region = "us-east-1" 
-}
+} 

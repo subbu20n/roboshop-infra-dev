@@ -40,7 +40,7 @@ resource "aws_route53_record" "frontend_alb" {
     name  = "${var.environment}.${var.zone_name}" 
     type  = "A" 
 
-    alias {
+    alias { 
         name = module.frontend_alb.dns_name 
         zone_id = module.frontend_alb.zone_id 
         evaluate_target_health = true 
