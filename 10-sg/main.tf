@@ -602,7 +602,7 @@ resource "aws_security_group_rule" "vpn_https" {
   to_port           = 443
   protocol          = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = module.vpn.sg_id
+  security_group_id = module.vpn.sg_id 
 }
 
 resource "aws_security_group_rule" "vpn_1194" {
@@ -613,7 +613,7 @@ resource "aws_security_group_rule" "vpn_1194" {
   cidr_blocks = ["0.0.0.0/0"]
   security_group_id = module.vpn.sg_id
 }
-
+ 
 resource "aws_security_group_rule" "vpn_943" {
   type              = "ingress"
   from_port         = 943

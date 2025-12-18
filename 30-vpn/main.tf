@@ -10,10 +10,10 @@ resource "aws_instance" "vpn" {
     vpc_security_group_ids = [local.vpn_sg_id] 
     subnet_id = local.public_subnet_id  
     key_name = "daws-84s" 
-    #key_name = aws_key_pair.openvpn.key_name 
-    user_data = file("openvpn.sh") 
+    #key_name = aws_key_pair.openvpn.key_name  
+    user_data = file("openvpn.sh")  
 
-    tags = merge(
+    tags = merge(  
         local.common_tags,
         {
             Name = "${var.project}-${var.environment}-vpn" 
@@ -29,3 +29,4 @@ resource "aws_route53_record" "vpn" {
     ttl   = 1 
     records = [aws_instance.vpn.public_ip]
 } 
+ 

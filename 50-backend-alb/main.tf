@@ -1,7 +1,7 @@
 module "backend_alb" {
     source = "terraform-aws-modules/alb/aws" 
     version = "9.16.0" 
-    internal =true 
+    internal =true  #it access only inside the  vpc - it cannot access from the internet  
     name = "${var.project}-${var.environment}-backend-alb" 
     vpc_id = local.vpc_id 
     subnets = local.private_subnet_ids 
@@ -14,21 +14,21 @@ module "backend_alb" {
             Name = "${var.project}-${var.environment}-backend-alb"
         }
     ) 
-}
+} 
 
 
-resource "aws_lb_listener" "backend_alb" {
+resource "aws_listener_rule" "backend_alb" {
     load_balancer_arn = module.backend_alb.arn 
-    port  = "80" 
+    port = "80" 
     protocol = "HTTP" 
 
-    default_action  {
-        type = "fixed-response" 
+    default-action {
+        type = "fixed_response"
 
         fixed_response {
             content_type = "text/html" 
-            message_body = "<h1>Hello i am from backend alb/<h1>"
-            status_code = "200"
+            message_body = "<h1>Hello, Hi i am from backend alb</h1>" 
+            status_code = "200-299"
         }
     }
 }
