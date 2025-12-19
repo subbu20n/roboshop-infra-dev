@@ -54,7 +54,7 @@ resource "aws_cloudfront_distribution" "roboshop" {
     acm_certificate_arn = local.acm_certificate_arn
     ssl_support_method = "sni-only"
   }
-}
+} 
 
 resource "aws_route53_record" "frontend_alb" {
   zone_id = var.zone_id
