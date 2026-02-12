@@ -198,4 +198,4 @@ resource "aws_lb_listener_rule" "catalogue" {
       values = ["catalogue.backend-${var.environment}.${var.zone_name}"]
     }
   }
-}
+}  

@@ -45,4 +45,4 @@ resource "aws_route53_record" "frontend_alb" {
         zone_id = module.frontend_alb.zone_id 
         evaluate_target_health = true 
     }
-} 
+}   

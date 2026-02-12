@@ -17,18 +17,18 @@ module "backend_alb" {
 } 
 
 
-resource "aws_listener_rule" "backend_alb" {
+resource "aws_lb_listener" "backend_alb" {
     load_balancer_arn = module.backend_alb.arn 
-    port = "80" 
+    port  = "80" 
     protocol = "HTTP" 
 
-    default-action {
-        type = "fixed_response"
+    default_action  {
+        type = "fixed-response" 
 
         fixed_response {
             content_type = "text/html" 
-            message_body = "<h1>Hello, Hi i am from backend alb</h1>" 
-            status_code = "200-299"
+            message_body = "<h1>Hello i am from backend alb/<h1>"
+            status_code = "200"
         }
     }
 }
