@@ -15,7 +15,7 @@ module "redis" {
     project = var.project
     environment = var.environment
 
-    sg_name = "redis"
+    sg_name = "redis" 
     sg_description = "for redis"
     vpc_id = local.vpc_id
 }
