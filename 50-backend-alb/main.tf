@@ -45,3 +45,4 @@ resource "aws_route53_record" "backend_alb" {
         evaluate_target_health = true 
     }
 }
+

@@ -26,3 +26,4 @@ data "aws_ssm_parameter" "bastion_sg_id" {
 data "aws_ssm_parameter" "public_subnet_ids" {
   name = "/${var.project}/${var.environment}/public_subnet_ids" 
 }
+

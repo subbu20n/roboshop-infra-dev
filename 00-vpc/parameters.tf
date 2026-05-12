@@ -21,3 +21,4 @@ resource "aws_ssm_parameter" "database_subnet_ids" {
   type  = "StringList"
   value = join(",", module.vpc.database_subnet_ids)
 }
+
