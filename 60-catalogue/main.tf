@@ -29,7 +29,7 @@ resource  "aws_instance" "catalogue" {
       Name = "${var.project}-${var.environment}-catalogue"
     }
   )
-}
+}  
 
 resource "terraform_data" "catalogue" {
   triggers_replace = [
